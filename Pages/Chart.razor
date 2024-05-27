@@ -1,0 +1,8 @@
+﻿@page "/chart"
+@page "/chart/{ContactId}"
+<h3>This is chart page : @ContactId</h3>
+
+@code {
+    [Parameter]
+    public string ContactId { get; set; }
+}

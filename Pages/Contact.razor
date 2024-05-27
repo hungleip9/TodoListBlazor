@@ -1,0 +1,28 @@
+﻿@page "/contact"
+@using TodoListBlazorWebAssembly.Shared
+@inject HttpClient Http
+
+<PageTitle>Contact</PageTitle>
+
+<div class="col-12">
+    @foreach (var contact in contactList)
+    {
+        <a href="/chart/@contact.ContactId" class="list-group-item list-group-item-action flex-column align-items-center">
+            @contact.FirstName <span> </span> @contact.LastName
+        </a>
+    }
+</div>
+
+
+@code {
+    private List<ContactList> contactList { get; set; } = new List<ContactList>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        contactList.Add(new ContactList(1, "Hung", "Le"));
+        contactList.Add(new ContactList(1, "Thu", "Minh"));
+        contactList.Add(new ContactList(1, "Hau", "Man"));
+        contactList.Add(new ContactList(1, "Hoa", "Nao"));
+        contactList.Add(new ContactList(1, "Long", "Tran"));
+    }
+}
